@@ -1,0 +1,545 @@
+
+
+
+/* Body bckground */
+body{
+  background-color: #03e51200;
+  text-align: right;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Nav bar */
+#nav{
+  position: right;
+  width: 100%;
+  top: 100%;
+  padding-top: 1%;
+  /*left: 50%; */
+}
+
+/* Left aligned logo */
+.logo{
+  float: left;
+  width: 10%;
+  height: 10px;
+  padding-top: 1%;
+  padding-left: 3%;
+}
+
+img {
+  width: 100%;
+  /* height: auto; */
+}
+/* Glowing hover box around each menu item */
+.box{
+  text-decoration:none;
+  color: #6f12ff;
+  background: transparent;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  border: 0px solid #fb1a87;
+  margin: 10px 10px;
+  display: inline-block;
+}
+
+.box:hover{
+  border: 0;
+  box-shadow: 0 0 3px #ff33b84a, 0 0 7px #ff33b84a, 0 0 20px #ff179a;
+}
+
+
+/* Display card tile - heading*/
+.h {
+  font-size: 70px;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color:#F6BA94;
+  
+
+}
+
+.m{
+  font-size: 30px;
+  text-align: left;
+  color: #6f12ff;
+  padding-left: 2%;
+
+}
+
+.p1 {
+  font-size: 20px;
+  text-align: left;
+  color: #F6BA94;
+  padding-left: 6%;
+}
+
+
+/* Display card tile - paragraph text*/
+.p {
+  font-size: 15px;
+  text-align: left;
+  color: #000000;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  margin-top: 0;
+  overflow: hidden;
+  position: relative;
+
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* Position the "prev button" to the left*/
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+/* Number text (1/5 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+/* footer */
+.footer{
+  display:block;
+  margin-top: 0;
+  width: 100%;
+  height: 200px;
+  background-position: center center;
+  /* background-size: cover; */
+  background-color: #ffffff;
+}
+
+.inner_footer{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* showing the logo at the bottom right in footer */
+.inner_footer .logo_container{
+  width: 35%;
+  float: right;
+  height: 20%;
+  display: block;
+  padding: 30px 10px;
+}
+
+.inner_footer .logo_container img{
+  width: 95px;
+  height: auto;
+}
+
+
+/* Social media icons - cool hovering */
+.inner_footer .social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 1em;
+
+}
+
+.inner_footer .social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 1.5em;
+  right: 6%;
+  text-align: center;
+
+}
+
+.inner_footer .social-icons i {
+  color: #ffffff;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  transition: all 265ms ease-out;
+}
+
+.inner_footer .social-icons a {
+  display: inline-block;
+}
+
+/* gradient style before hovering in orange and yellow*/
+.inner_footer .social-icons a:before {
+  @include transformScale();
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: inline-block;
+  background: linear-gradient(50deg, #7D488E, #6f12ff);
+  transition: all 265ms ease-out;
+}
+
+.inner_footer .social-icons a:hover:before {
+  transform: scale(0);
+  transition: all 265ms ease-in;
+}
+
+/* gradient style after hovering in orange and yellow*/
+.inner_footer .social-icons a:hover i {
+  @include transformScale(2.2);
+  color: #14626c;
+  background: -webkit-linear-gradient(45deg, #7D488E, #6f12ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 265ms ease-in;
+
+}
+
+/* adds the underline under the link */
+.inner_footer .sub a{
+  text-decoration: underline;
+  color: #7D488E;
+}
+
+/* Copyright text in orange at bottom */
+.inner_footer .cpy{
+  font-size: 12px;
+  color: #6f12ff;;
+  position: absolute;
+  left: 40%;
+  text-align: center;
+  padding: none;
+}
+
+
+/* Responsive Style - for phones*/
+@media (max-width: 420px) {
+	.sub-header {
+		max-height: 100px;
+	}
+	.banner_box{
+		max-height: 100px;
+	}
+	.img {
+		margin-top:0%;
+	}
+	.services .service-item {
+		margin-bottom: 10px;
+	}
+	.img
+	{
+     	width: 10%;
+	}
+	footer {
+		padding: 40px 0px 10px 0px;
+	}
+	footer .footer-item {
+		border-bottom: 1px solid #343434;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+	}
+	footer .last-item {
+		border-bottom: none;
+	}
+	
+	
+}
+
+@media (max-width: 992px) {
+	.navbar .navbar-brand {
+		position: absolute;
+		left: 30px;
+		top: 30px;
+	}
+	.navbar .navbar-brand {
+		width: auto;
+	}
+	.navbar:after {
+		display: none;
+	}
+	#navbarResponsive {
+	    z-index: 99999;
+	    position: absolute;
+	    top: 80px;
+	    left: 0;
+	    width: 100%;
+	    text-align: center;
+	    background-color: #fff;
+	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+	}
+	.navbar .navbar-nav .nav-item {
+		border-bottom: 1px solid #eee;
+	}
+	.navbar .navbar-nav .nav-item:last-child {
+		border-bottom: none;
+	}
+	.navbar .navbar-nav a.nav-link {
+		padding: 15px 0px;
+		color: #1e1e1e!important;
+	}
+	.navbar .navbar-nav .nav-link:hover,
+	.navbar .navbar-nav .active>.nav-link,
+	.navbar .navbar-nav .nav-link.active,
+	.navbar .navbar-nav .nav-link.show,
+	.navbar .navbar-nav .show>.nav-link {
+		color: #a4c639!important;
+		border-bottom: none!important;
+	}
+}
+
+
+/* About us*/
+
+/* Display card tile - tile */
+.card {
+  background-color: #fff;
+  height: 10rem;
+  padding-bottom: 10%;
+  /* border-radius: 30px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  color: #000;
+}
+
+/* Display card tile - heading*/
+.card__h {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+
+}
+
+/* Display card tile - paragraph text*/
+.card__p {
+  font-size: 15px;
+  text-align: left;
+  color: #A9A9A9;
+  padding: 40px;
+}
+
+/* Display card tile - image */
+.card__image {
+  width: 30%;
+  height: 120%;
+  padding-left: 40%;
+}
+.img-try {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 700px;
+}
+.tile {
+  display: grid;
+  grid-template-columns: 310px 310px 310px 310px;
+  grid-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+}
+.tile_card {
+  background-color: #F6BA94;
+  height: 400px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  color: #6f12ff;
+}
+
+.tile_name {
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+/* Display card tile - paragraph text*/
+.tile_p {
+  font-size: 15px;
+  text-align: center;
+  color: black;
+}
+.tile_image {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 5px solid #6f12ff;
+  margin-top: 20px;
+  box-shadow: 0 10px 50px #ff179a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Find local food bank stuff */
+
+#find-a-food-bank-grid {
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    /* grid-template-rows: 2fr 7fr; */
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+#find-a-food-bank-search {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    grid-template-rows: 30px 30px 7fr;
+    width: 100%;
+    height: 100%;
+}
+
+#postal-code {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#radius {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+/* #submit-search {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+} */
+
+/* #find-a-food-bank-postal-code-input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 100%;
+}
+
+#find-a-food-bank-radius-input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+} */
+
+#map_43c67d12571c43ac916e0711638cbe21 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+
+/* Glowing hover button */
+#submit-search{
+  text-decoration:none;
+  color: #6f12ff;
+  background: transparent;
+  padding: 30px 30px 30px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  border: 0px solid #fb1a87;
+  margin: 10px 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+#submit-search:hover{
+  border: 0;
+  box-shadow: 0 0 3px #ff33b84a, 0 0 7px #ff33b84a, 0 0 20px #ff179a;
+}
+
+/* Find local food bank stuff */
