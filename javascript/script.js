@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const DISTANCE = {
   "driving": {
     "distance": "10km", 
@@ -33,6 +34,10 @@ var LOCAL_FOOD_BANK = [
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
+=======
+
+
+>>>>>>> master
 
 async function postData(url = '', data = {}) {
 
@@ -53,7 +58,10 @@ async function postData(url = '', data = {}) {
 
 }
 
+<<<<<<< HEAD
 // Utility Functions
+=======
+>>>>>>> master
 
 async function getLocalFoodBanks(address, radius) {
 	return await postData('http://localhost:8000/getAvailableBanks', {'address': address, 'radius': radius}).then(r => {return r.json()}).then(r => {return r});

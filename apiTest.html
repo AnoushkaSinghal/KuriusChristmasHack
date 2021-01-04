@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Testing API</title>
+
+	<!-- Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Libraries -->
+</head>
+
+<body>
+	<script>
+		var ANSWERS = {};
+
+		function getData() {
+			let questionNumber = document.getElementsByName("Some input box")[0].value;
+			
+			if (isNaN(questionNumber)) {
+				alert('Enter a number');
+				return;
+			}
+
+			if (questionNumber < 1) {
+				alert('Enter a valid number');
+				return;
+			}
+
+			if (ANSWERS.hasOwnProperty(questionNumber)) {
+				return;
+			}
+
+			$.getJSON('http://localhost:8000/getQuestion', {'number': questionNumber})
+				.done(function(data) {
+					console.log(data);
+
+					// Checking if the answer was invalid
+					if (data.hasOwnProperty('Invalid Data')) {
+						alert(data['Invalid Data']); // Value = Max question is [number]
+						return;
+					}
+
+					addQuestion(data, questionNumber)
+				})
+				.fail(function() {
+					alert('The request has failed, check if the apiImplementation.py is running');
+				});
+		}
+
+		function addQuestion(jsonData, questionNumber) {
+			// Appending answer to the ANSWERS variable
+			ANSWERS[questionNumber] = jsonData['answer'];
+
+
+			// Parent node
+			let node = document.createElement('li');
+
+
+			// Adding the question
+			node.appendChild(document.createTextNode(questionNumber + '. ' + jsonData['question']));
+
+			// Adding the choices
+			let choices = document.createElement('select');
+			choices.id = 'Select-' + questionNumber;
+
+			// Adding the answers
+			for (questionChoice of jsonData['choices']) {
+				let choice = document.createElement('option');
+				choice.value = questionChoice;
+				choice.text = questionChoice;
+				choices.appendChild(choice);
+			}
+
+			node.appendChild(choices);
+
+			// Adding the check button
+			let checkButton = document.createElement('button');
+			checkButton.innerText = 'Check';
+			checkButton.questionNumber = questionNumber;
+
+			// Verifying the answer when clicking the button
+			checkButton.onclick = function() {
+				// Getting what the user entered
+				let userAnswer = document.getElementById('Select-' + this.questionNumber).value;
+				let questionAnswer = ANSWERS[this.questionNumber];
+
+				if (userAnswer == questionAnswer) {
+					alert('Correct!');
+					// Maybe sound effect ??!??
+				} else {
+					alert('Wrong!')
+				}
+
+			}
+
+			// Appending to the node
+			node.appendChild(checkButton);
+
+			// Appending to the questions list
+			document.getElementById('Questions').appendChild(node)
+		}
+	</script>
+
+	<input type="text" name="Some input box">
+	<button onClick="getData()">Get Question</button>
+
+	<ul id="Questions">
+		
+	</ul>
+
+</body>
+</html>
