@@ -13,6 +13,10 @@ with open('questions.txt', 'r') as f:
 			questions[i][j] = questions[i][j].strip()
 
 def getQuestionFunction(number):
+	if len(questions) < number:
+		return {'Invalid Data': f'Max question is {len(questions)}'}
+
+
 	question = questions[number-1]
 
 	data = {

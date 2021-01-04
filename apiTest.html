@@ -18,7 +18,12 @@
 			let questionNumber = document.getElementsByName("Some input box")[0].value;
 			
 			if (isNaN(questionNumber)) {
-				alert('Enter a number')
+				alert('Enter a number');
+				return;
+			}
+
+			if (questionNumber < 1) {
+				alert('Enter a valid number');
 				return;
 			}
 
@@ -28,6 +33,14 @@
 
 			$.getJSON('http://localhost:8000/getQuestion', {'number': questionNumber})
 				.done(function(data) {
+					console.log(data);
+
+					// Checking if the answer was invalid
+					if (data.hasOwnProperty('Invalid Data')) {
+						alert(data['Invalid Data']); // Value = Max question is [number]
+						return;
+					}
+
 					addQuestion(data, questionNumber)
 				})
 				.fail(function() {
